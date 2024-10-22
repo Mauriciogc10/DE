@@ -1,14 +1,14 @@
 ==================
 Stored Procedures 
 ==================
-// Create database and schemas if not exists
+-- Create database and schemas if not exists
 CREATE DATABASE IF NOT EXISTS MYOWN_DB;
 CREATE SCHEMA IF NOT EXISTS MYPROCS;
 
 ==============
 SQL Procudure
 ==============
-// Setup some sample data
+-- Setup some sample data
 CREATE OR REPLACE TABLE MYOWN_DB.PUBLIC.CUST_SALES
 (CID INT, CNAME VARCHAR, PRODNAME VARCHAR, PROD_CAT VARCHAR, PRICE NUMBER);
 
@@ -28,7 +28,7 @@ INSERT INTO MYOWN_DB.PUBLIC.CUST_SALES VALUES
 select * from MYOWN_DB.PUBLIC.CUST_SALES;
 
 
-// Create a procedure to calculate total amount spent in a store
+-- Create a procedure to calculate total amount spent in a store
 
 CREATE OR REPLACE PROCEDURE MYPROCS.CUST_TOT_PRICE(ID INT, CAT VARCHAR)
 RETURNS FLOAT
@@ -54,7 +54,7 @@ end;
 
 $$
 
-// Calls to the stored procedure
+-- Calls to the stored procedure
 CALL MYPROCS.CUST_TOT_PRICE(101, 'ELECTRONICS');
 CALL MYPROCS.CUST_TOT_PRICE(102, 'FOOD');
 CALL MYPROCS.CUST_TOT_PRICE(102, 'ELECTRONICS');
@@ -70,7 +70,7 @@ var statement1 = snowflake.CreateStatement(sqlText: my_sql_command1);
 statement1.execute();
 */
 
-// create a procedure to get the row count of a table
+-- create a procedure to get the row count of a table
 create or replace procedure get_row_count(table_name VARCHAR)
   returns float not null
   language javascript
